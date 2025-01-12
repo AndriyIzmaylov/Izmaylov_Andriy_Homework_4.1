@@ -10,14 +10,9 @@
 # запит на введення даних від користувача не потрібно.
 
 def define_and_move_zeros_to_end(incoming_list_of_numbers):
-    index_of_zeros = 0
-    for numbers in incoming_list_of_numbers:
-        if numbers == 0:
-            index_of_zeros += 1
-            incoming_list_of_numbers.remove(0)
-
-    incoming_list_of_numbers.extend([0] * index_of_zeros)
-    return incoming_list_of_numbers
+    non_zero_numbers = [number for number in incoming_list_of_numbers if number != 0]
+    zero_count = incoming_list_of_numbers.count(0)
+    return non_zero_numbers + [0] * zero_count
 
 
 test_cases = [
